@@ -16,6 +16,7 @@
 		64D53CD72225A47100300A97 /* iOSCollectionViewDemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D53CD62225A47100300A97 /* iOSCollectionViewDemoAppUITests.swift */; };
 		64D53CE82225A74200300A97 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D53CE62225A74200300A97 /* Nuke.framework */; };
 		64D53CE92225A74200300A97 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D53CE72225A74200300A97 /* Alamofire.framework */; };
+		64D53CEC2225A91B00300A97 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D53CEB2225A91B00300A97 /* NVActivityIndicatorView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		64D53CD82225A47100300A97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64D53CE62225A74200300A97 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		64D53CE72225A74200300A97 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		64D53CEB2225A91B00300A97 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D53CEC2225A91B00300A97 /* NVActivityIndicatorView.framework in Frameworks */,
 				64D53CE82225A74200300A97 /* Nuke.framework in Frameworks */,
 				64D53CE92225A74200300A97 /* Alamofire.framework in Frameworks */,
 			);
@@ -135,6 +138,7 @@
 		64D53CE52225A74100300A97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				64D53CEB2225A91B00300A97 /* NVActivityIndicatorView.framework */,
 				64D53CE72225A74200300A97 /* Alamofire.framework */,
 				64D53CE62225A74200300A97 /* Nuke.framework */,
 			);
@@ -298,6 +302,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NVActivityIndicatorView.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
