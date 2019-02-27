@@ -21,6 +21,8 @@
 		64D53CF42225A98500300A97 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D53CEF2225A98500300A97 /* APIClient.swift */; };
 		64D53CF62225A98500300A97 /* MultipartRequestContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D53CF12225A98500300A97 /* MultipartRequestContent.swift */; };
 		64D53CF72225A98500300A97 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D53CF22225A98500300A97 /* APIRequest.swift */; };
+		64D53CFC2225AFC500300A97 /* PhotoSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D53CFB2225AFC500300A97 /* PhotoSearchRequest.swift */; };
+		64D53CFE2225B3AC00300A97 /* PhotoSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D53CFD2225B3AB00300A97 /* PhotoSearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		64D53CEF2225A98500300A97 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		64D53CF12225A98500300A97 /* MultipartRequestContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartRequestContent.swift; sourceTree = "<group>"; };
 		64D53CF22225A98500300A97 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		64D53CFB2225AFC500300A97 /* PhotoSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchRequest.swift; sourceTree = "<group>"; };
+		64D53CFD2225B3AB00300A97 /* PhotoSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +119,14 @@
 		64D53CB52225A46F00300A97 /* iOSCollectionViewDemoApp */ = {
 			isa = PBXGroup;
 			children = (
-				64D53CED2225A96C00300A97 /* Helpers */,
 				64D53CB62225A46F00300A97 /* AppDelegate.swift */,
-				64D53CB82225A46F00300A97 /* ViewController.swift */,
-				64D53CBA2225A46F00300A97 /* Main.storyboard */,
 				64D53CBD2225A47100300A97 /* Assets.xcassets */,
-				64D53CBF2225A47100300A97 /* LaunchScreen.storyboard */,
+				64D53CED2225A96C00300A97 /* Helpers */,
 				64D53CC22225A47100300A97 /* Info.plist */,
+				64D53CBF2225A47100300A97 /* LaunchScreen.storyboard */,
+				64D53CBA2225A46F00300A97 /* Main.storyboard */,
+				64D53CF82225AD3100300A97 /* Models */,
+				64D53CB82225A46F00300A97 /* ViewController.swift */,
 			);
 			path = iOSCollectionViewDemoApp;
 			sourceTree = "<group>";
@@ -163,6 +168,31 @@
 				64D53CF12225A98500300A97 /* MultipartRequestContent.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		64D53CF82225AD3100300A97 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64D53CF92225AD4400300A97 /* API */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64D53CF92225AD4400300A97 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				64D53CFA2225AF9400300A97 /* FlickrAPI */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		64D53CFA2225AF9400300A97 /* FlickrAPI */ = {
+			isa = PBXGroup;
+			children = (
+				64D53CFB2225AFC500300A97 /* PhotoSearchRequest.swift */,
+				64D53CFD2225B3AB00300A97 /* PhotoSearchResponse.swift */,
+			);
+			path = FlickrAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,7 +361,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -342,6 +372,8 @@
 			files = (
 				64D53CF72225A98500300A97 /* APIRequest.swift in Sources */,
 				64D53CB92225A46F00300A97 /* ViewController.swift in Sources */,
+				64D53CFC2225AFC500300A97 /* PhotoSearchRequest.swift in Sources */,
+				64D53CFE2225B3AC00300A97 /* PhotoSearchResponse.swift in Sources */,
 				64D53CB72225A46F00300A97 /* AppDelegate.swift in Sources */,
 				64D53CF32225A98500300A97 /* MultipartRequest.swift in Sources */,
 				64D53CF62225A98500300A97 /* MultipartRequestContent.swift in Sources */,

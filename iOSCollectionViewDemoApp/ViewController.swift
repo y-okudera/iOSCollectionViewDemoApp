@@ -9,10 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var photoSearchRequest: PhotoSearchRequest?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        photoSearchRequest = PhotoSearchRequest(page: 1, tags: "dog")
+        photoSearchRequest?.delegate = self
+        photoSearchRequest?.load()
     }
 
+}
+
+extension ViewController: PhotoSearchProtocol {
+    func succeeded(response: PhotoSearchResponse) {
+        print("response", response)
+    }
+    
+    func failed(text: String) {
+        print("error text", text)
+    }
 }
