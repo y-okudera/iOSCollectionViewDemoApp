@@ -16,6 +16,7 @@ final class PhotosViewController: UIViewController {
     
     var photoSearchRequest: PhotoSearchRequest?
     var photos = [Photo]()
+    var photosPrefetcher: PhotosPrefetcher?
     
     // MARK: - Life cycle
     
@@ -39,6 +40,7 @@ extension PhotosViewController {
     /// UI関連の初期処理
     private func setupLayout() {
         
+        collectionView.prefetchDataSource = self
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -52,6 +54,23 @@ extension PhotosViewController {
         
         startAnimating()
         photoSearchRequest?.load()
+    }
+}
+
+// MARK: - UICollectionViewDataSourcePrefetching
+extension PhotosViewController: UICollectionViewDataSourcePrefetching {
+    
+    /// 事前読み込み
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        let imageUrlStrings = indexPaths.map { photos[$0.row].imageURL() }
+        photosPrefetcher = PhotosPrefetcher(urlStrings: imageUrlStrings)
+        photosPrefetcher?.startPrefetching()
+    }
+    
+    /// 事前読み込みをキャンセルする
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        photosPrefetcher?.stopPrefetching()
     }
 }
 
