@@ -9,8 +9,8 @@
 import UIKit
 
 struct PhotoSearchResponse: Decodable {
-    var stat = ""
     var photos: Photos?
+    var stat = ""
 }
 
 struct Photos: Decodable {
@@ -22,7 +22,14 @@ struct Photos: Decodable {
 
 struct Photo: Decodable {
     var farm = 0
-    var server = ""
+    
+    // swiftlint:disable:next identifier_name
     var id = ""
+    
     var secret = ""
+    var server = ""
+    
+    func imageURL() -> String {
+        return "https://farm\(self.farm).staticflickr.com/\(self.server)/\(self.id)_\(self.secret).jpg"
+    }
 }
