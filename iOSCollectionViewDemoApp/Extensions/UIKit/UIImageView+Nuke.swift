@@ -20,13 +20,13 @@ extension UIImageView {
         
         if urlString.isEmpty {
             print("画像のURLが空文字")
-            self.image = nil
+            self.image = failureImage
             return
         }
         
         guard let imageRequest = ImageRequest.makeHighPriorityImageRequest(urlString: urlString) else {
             print("ImageRequestがnil")
-            self.image = nil
+            self.image = failureImage
             return
         }
         
