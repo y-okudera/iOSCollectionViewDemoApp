@@ -11,23 +11,6 @@ import UIKit
 
 extension UIImageView {
     
-    /// イメージリクエストを生成する
-    ///
-    /// - parameter urlString: 画像のURL
-    static func makeImageRequest(urlString: String) -> ImageRequest? {
-        
-        guard let url = URL(string: urlString) else {
-            print("画像のURLがnil")
-            return nil
-        }
-        var imageRequest = ImageRequest(url: url)
-        
-        // リクエストプライオリティを設定
-        imageRequest.priority = .high
-        
-        return imageRequest
-    }
-    
     /// 非同期で画像を取得する
     ///
     /// - parameter urlString: 画像のURL
@@ -41,7 +24,7 @@ extension UIImageView {
             return
         }
         
-        guard let imageRequest = UIImageView.makeImageRequest(urlString: urlString) else {
+        guard let imageRequest = ImageRequest.makeHighPriorityImageRequest(urlString: urlString) else {
             print("ImageRequestがnil")
             self.image = nil
             return
@@ -50,5 +33,25 @@ extension UIImageView {
         // ロード中に表示する画像とリクエスト失敗時に表示する画像を設定
         let options = ImageLoadingOptions(placeholder: placeholder, failureImage: failureImage)
         Nuke.loadImage(with: imageRequest, options: options, into: self)
+    }
+}
+
+extension Nuke.ImageRequest {
+    
+    /// イメージリクエストを生成する
+    ///
+    /// - parameter urlString: 画像のURL
+    static func makeHighPriorityImageRequest(urlString: String) -> ImageRequest? {
+        
+        guard let url = URL(string: urlString) else {
+            print("画像のURLがnil")
+            return nil
+        }
+        var imageRequest = ImageRequest(url: url)
+        
+        // リクエストプライオリティを設定
+        imageRequest.priority = .high
+        
+        return imageRequest
     }
 }

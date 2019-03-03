@@ -7,7 +7,6 @@
 //
 
 import Nuke
-import UIKit
 
 final class PhotosPrefetcher {
     
@@ -24,7 +23,7 @@ final class PhotosPrefetcher {
         
         imageRequests = []
         for urlString in urlStrings {
-            if let request = UIImageView.makeImageRequest(urlString: urlString) {
+            if let request = ImageRequest.makeHighPriorityImageRequest(urlString: urlString) {
                 imageRequests.append(request)
             }
         }
