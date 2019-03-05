@@ -11,6 +11,7 @@
 		6475B2EE222AD08200FE7E72 /* UICollectionView+DequeueReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6475B2ED222AD08200FE7E72 /* UICollectionView+DequeueReusable.swift */; };
 		6475B2F0222ADA6F00FE7E72 /* UIViewController+NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6475B2EF222ADA6F00FE7E72 /* UIViewController+NVActivityIndicatorView.swift */; };
 		6475B2F2222AE17300FE7E72 /* UIImageView+Nuke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6475B2F1222AE17300FE7E72 /* UIImageView+Nuke.swift */; };
+		6475B2F6222AED1400FE7E72 /* PhotosPrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6475B2F5222AED1400FE7E72 /* PhotosPrefetcher.swift */; };
 		648B105B2226FD2D0011F205 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648B105A2226FD2D0011F205 /* PhotosViewController.swift */; };
 		648B105D2226FD390011F205 /* PhotosViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 648B105C2226FD390011F205 /* PhotosViewController.storyboard */; };
 		648B10602226FDC00011F205 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648B105F2226FDC00011F205 /* PhotoCollectionViewCell.swift */; };
@@ -52,6 +53,7 @@
 		6475B2ED222AD08200FE7E72 /* UICollectionView+DequeueReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+DequeueReusable.swift"; sourceTree = "<group>"; };
 		6475B2EF222ADA6F00FE7E72 /* UIViewController+NVActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NVActivityIndicatorView.swift"; sourceTree = "<group>"; };
 		6475B2F1222AE17300FE7E72 /* UIImageView+Nuke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Nuke.swift"; sourceTree = "<group>"; };
+		6475B2F5222AED1400FE7E72 /* PhotosPrefetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPrefetcher.swift; sourceTree = "<group>"; };
 		648B105A2226FD2D0011F205 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		648B105C2226FD390011F205 /* PhotosViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotosViewController.storyboard; sourceTree = "<group>"; };
 		648B105F2226FDC00011F205 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				64D53CF92225AD4400300A97 /* API */,
+				6475B2F5222AED1400FE7E72 /* PhotosPrefetcher.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 			files = (
 				648B105B2226FD2D0011F205 /* PhotosViewController.swift in Sources */,
 				648B10602226FDC00011F205 /* PhotoCollectionViewCell.swift in Sources */,
+				6475B2F6222AED1400FE7E72 /* PhotosPrefetcher.swift in Sources */,
 				6475B2F0222ADA6F00FE7E72 /* UIViewController+NVActivityIndicatorView.swift in Sources */,
 				64D53CF72225A98500300A97 /* APIRequest.swift in Sources */,
 				64D53CFC2225AFC500300A97 /* PhotoSearchRequest.swift in Sources */,

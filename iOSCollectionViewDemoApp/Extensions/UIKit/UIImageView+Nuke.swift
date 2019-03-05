@@ -11,49 +11,43 @@ import UIKit
 
 extension UIImageView {
     
+    /// 非同期で画像を取得する
+    ///
+    /// - parameter urlString: 画像のURL
+    /// - parameter placeholder: 画像ロード中に表示する画像
+    /// - parameter failureImage: 画像ロード失敗時に表示する画像
     func setImageByNuke(urlString: String, placeholder: UIImage? = nil, failureImage: UIImage? = nil) {
         
         if urlString.isEmpty {
             print("画像のURLが空文字")
-            self.image = nil
+            self.image = failureImage
             return
         }
         
-        guard let imageRequest = makeImageRequest(urlString: urlString) else {
+        guard let imageRequest = ImageRequest.makeHighPriorityImageRequest(urlString: urlString) else {
             print("ImageRequestがnil")
-            self.image = nil
+            self.image = failureImage
             return
         }
         
         // ロード中に表示する画像とリクエスト失敗時に表示する画像を設定
         let options = ImageLoadingOptions(placeholder: placeholder, failureImage: failureImage)
-        
-        Nuke.loadImage(with: imageRequest, options: options, into: self) { [weak self] imageResponse, error in
-            if let error = error {
-                print("load image error: \(error)")
-                return
-            }
-            DispatchQueue.main.async {
-                self?.image = imageResponse?.image
-            }
-        }
+        Nuke.loadImage(with: imageRequest, options: options, into: self)
     }
+}
+
+extension Nuke.ImageRequest {
     
     /// イメージリクエストを生成する
     ///
     /// - parameter urlString: 画像のURL
-    /// - parameter useCache: キャッシュを使用するかどうか (デフォルト: 使用する)
-    private func makeImageRequest(urlString: String, useCache: Bool = true) -> ImageRequest? {
+    static func makeHighPriorityImageRequest(urlString: String) -> ImageRequest? {
         
-        print("画像のURL: \(urlString)")
         guard let url = URL(string: urlString) else {
             print("画像のURLがnil")
             return nil
         }
         var imageRequest = ImageRequest(url: url)
-        
-        // キャッシュポリシーを設定
-        imageRequest.memoryCacheOptions.isReadAllowed = useCache
         
         // リクエストプライオリティを設定
         imageRequest.priority = .high
