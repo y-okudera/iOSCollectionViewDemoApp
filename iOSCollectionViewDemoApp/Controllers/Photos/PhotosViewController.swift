@@ -25,6 +25,11 @@ final class PhotosViewController: UIViewController {
         
         setup()
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
 }
 
 // MARK: - Setup
@@ -37,14 +42,6 @@ extension PhotosViewController {
         setupLayout()
     }
     
-    /// UI関連の初期処理
-    private func setupLayout() {
-        
-        collectionView.prefetchDataSource = self
-        collectionView.dataSource = self
-        collectionView.delegate = self
-    }
-    
     /// API関連の初期処理
     private func setupAPI() {
         
@@ -54,6 +51,20 @@ extension PhotosViewController {
         
         startAnimating()
         photoSearchRequest?.load()
+    }
+    
+    /// UI関連の初期処理
+    private func setupLayout() {
+        
+        // Self-Sizingの有効化
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            let width = UIScreen.main.bounds.width * 0.4
+            flowLayout.estimatedItemSize = .init(width: width, height: width)
+        }
+        
+        collectionView.prefetchDataSource = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
 }
 
