@@ -10,9 +10,9 @@ import Nuke
 
 final class PhotosPrefetcher {
     
-    let preheater = ImagePreheater()
-    var urlStrings: [String]
-    var imageRequests = [ImageRequest]()
+    private let preheater = ImagePreheater()
+    private var urlStrings: [String]
+    private var imageRequests = [ImageRequest]()
     
     init(urlStrings: [String]) {
         self.urlStrings = urlStrings
